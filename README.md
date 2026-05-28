@@ -228,29 +228,29 @@ This section presents comprehensive evaluation metrics for all trained models ac
 
 #### ResNet50 on Mendeley Dataset (7 Classes)
 
-| Metric | Run 1 | Run 2 | Average |
-|--------|-------|-------|---------|
-| **Accuracy** | 0.8734 | 0.8912 | 0.8823 |
-| **Precision** | 0.8814 | 0.8969 | 0.8892 |
-| **Recall** | 0.8734 | 0.8912 | 0.8823 |
-| **F1-Score** | 0.8752 | 0.8919 | 0.8836 |
-| **MCC** | 0.8465 | 0.8681 | 0.8573 |
-| **Balanced Accuracy** | 0.8676 | 0.8801 | 0.8739 |
+| Metric | Run 1 | Run 2 | Run 3 | Run 4 | Average |
+|--------|-------|-------|-------|-------|----------|
+| **Accuracy** | 0.8636 | 0.8912 | 0.8734 | 0.8669 | 0.8738 |
+| **Precision** | 0.8666 | 0.8969 | 0.8736 | 0.8684 | 0.8764 |
+| **Recall** | 0.8636 | 0.8912 | 0.8734 | 0.8669 | 0.8738 |
+| **F1-Score** | 0.8644 | 0.8919 | 0.8731 | 0.8668 | 0.8741 |
+| **MCC** | 0.8342 | 0.8681 | 0.8455 | 0.8385 | 0.8466 |
+| **Balanced Accuracy** | 0.8742 | 0.8801 | 0.8759 | 0.8571 | 0.8718 |
 
-**Summary**: ResNet50 achieves strong performance on the complex Mendeley dataset with 7 disease classes, demonstrating consistent results across runs with ~88% average accuracy.
+**Summary**: ResNet50 achieves strong performance on the complex Mendeley dataset with 7 disease classes, demonstrating consistent results across 4 runs with different seeds (~87.4% average accuracy). Performance is stable with minimal variance across seeds (86.4%-89.1% range).
 
 #### ResNet50 on PlantVillage Dataset (3 Classes)
 
-| Metric | Run 1 | Run 2 | Average |
-|--------|-------|-------|---------|
-| **Accuracy** | 1.0000 | 1.0000 | 1.0000 |
-| **Precision** | 1.0000 | 1.0000 | 1.0000 |
-| **Recall** | 1.0000 | 1.0000 | 1.0000 |
-| **F1-Score** | 1.0000 | 1.0000 | 1.0000 |
-| **MCC** | 1.0000 | 1.0000 | 1.0000 |
-| **Balanced Accuracy** | 1.0000 | 1.0000 | 1.0000 |
+| Metric | Run 1 | Run 2 | Run 3 | Run 4 | Average |
+|--------|-------|-------|-------|-------|----------|
+| **Accuracy** | 1.0000 | 1.0000 | 1.0000 | 0.9968 | 0.9992 |
+| **Precision** | 1.0000 | 1.0000 | 1.0000 | 0.9978 | 0.9995 |
+| **Recall** | 1.0000 | 1.0000 | 1.0000 | 0.9968 | 0.9992 |
+| **F1-Score** | 1.0000 | 1.0000 | 1.0000 | 0.9977 | 0.9994 |
+| **MCC** | 1.0000 | 1.0000 | 1.0000 | 0.9959 | 0.9990 |
+| **Balanced Accuracy** | 1.0000 | 1.0000 | 1.0000 | 0.9983 | 0.9996 |
 
-**Summary**: ResNet50 achieves perfect classification on the PlantVillage dataset. This suggests that the simpler 3-class problem with controlled environment images is well-suited to ResNet50's architecture.
+**Summary**: ResNet50 achieves near-perfect classification on the PlantVillage dataset (~99.9% average accuracy across 4 runs). 3 runs show perfect classification while Run 4 shows only minimal misclassification, indicating excellent stability on this simpler task.
 
 ---
 
@@ -258,42 +258,42 @@ This section presents comprehensive evaluation metrics for all trained models ac
 
 #### DenseNet169 on Mendeley Dataset (Full Fine-tuning)
 
-| Metric | Run 1 | Run 2 | Average |
-|--------|-------|-------|---------|
-| **Accuracy** | 0.9156 | 0.8961 | 0.9059 |
-| **Precision** | 0.9198 | 0.9029 | 0.9114 |
-| **Recall** | 0.9156 | 0.8961 | 0.9059 |
-| **F1-Score** | 0.9162 | 0.8970 | 0.9066 |
-| **MCC** | 0.8976 | 0.8741 | 0.8859 |
-| **Balanced Accuracy** | 0.9047 | 0.8963 | 0.9005 |
+| Metric | Run 1 | Run 2 | Run 3 | Run 4 | Average |
+|--------|-------|-------|-------|-------|----------|
+| **Accuracy** | 0.9156 | 0.8847 | 0.8847 | 0.9058 | 0.8977 |
+| **Precision** | 0.9198 | 0.8919 | 0.8875 | 0.9077 | 0.9017 |
+| **Recall** | 0.9156 | 0.8847 | 0.8847 | 0.9058 | 0.8977 |
+| **F1-Score** | 0.9162 | 0.8858 | 0.8849 | 0.9062 | 0.8983 |
+| **MCC** | 0.8976 | 0.8607 | 0.8603 | 0.8854 | 0.8760 |
+| **Balanced Accuracy** | 0.9047 | 0.8904 | 0.8861 | 0.8992 | 0.8951 |
 
-**Summary**: DenseNet169 with full fine-tuning outperforms ResNet50 on Mendeley with ~90.6% average accuracy, highlighting the benefit of dense connections for feature reuse.
+**Summary**: DenseNet169 with full fine-tuning outperforms ResNet50 on Mendeley with ~89.8% average accuracy across 4 runs. Shows good stability with consistent performance (88.5%-91.6% range), demonstrating the benefit of dense connections for feature reuse.
 
 #### DenseNet169 on Mendeley Dataset (Final Layer Only - Fine-tuning)
 
-| Metric | Run 1 | Run 2 | Average |
-|--------|-------|-------|---------|
-| **Accuracy** | 0.6526 | 0.7159 | 0.6843 |
-| **Precision** | 0.6669 | 0.7158 | 0.6914 |
-| **Recall** | 0.6526 | 0.7159 | 0.6843 |
-| **F1-Score** | 0.6541 | 0.7148 | 0.6845 |
-| **MCC** | 0.5768 | 0.6529 | 0.6149 |
-| **Balanced Accuracy** | 0.6303 | 0.6916 | 0.6610 |
+| Metric | Run 1 | Run 2 | Run 3 | Run 4 | Average |
+|--------|-------|-------|-------|-------|----------|
+| **Accuracy** | 0.6526 | 0.7159 | 0.7224 | 0.6786 | 0.6924 |
+| **Precision** | 0.6669 | 0.7158 | 0.7250 | 0.6717 | 0.6949 |
+| **Recall** | 0.6526 | 0.7159 | 0.7224 | 0.6786 | 0.6924 |
+| **F1-Score** | 0.6541 | 0.7148 | 0.7211 | 0.6732 | 0.6908 |
+| **MCC** | 0.5768 | 0.6529 | 0.6607 | 0.6078 | 0.6246 |
+| **Balanced Accuracy** | 0.6303 | 0.6916 | 0.6665 | 0.6219 | 0.6526 |
 
-**Summary**: Limiting fine-tuning to only the final layer significantly reduces performance (~68.4% accuracy) compared to full fine-tuning. This demonstrates that updating multiple layers is crucial for adapting the network to the potato disease classification task.
+**Summary**: Limiting fine-tuning to only the final layer significantly reduces performance (~69.2% average accuracy across 4 runs with different seeds) compared to full fine-tuning. Performance shows moderate variance across seeds (range: 65.3%-72.2%), indicating some sensitivity to initialization. This demonstrates that updating multiple layers is crucial for adapting the network to the potato disease classification task. The expanded 4-run evaluation provides stronger evidence of model behavior under different random initialization conditions.
 
 #### DenseNet169 on PlantVillage Dataset (Full Fine-tuning)
 
-| Metric | Run 1 | Run 2 | Average |
-|--------|-------|-------|---------|
-| **Accuracy** | 1.0000 | 1.0000 | 1.0000 |
-| **Precision** | 1.0000 | 1.0000 | 1.0000 |
-| **Recall** | 1.0000 | 1.0000 | 1.0000 |
-| **F1-Score** | 1.0000 | 1.0000 | 1.0000 |
-| **MCC** | 1.0000 | 1.0000 | 1.0000 |
-| **Balanced Accuracy** | 1.0000 | 1.0000 | 1.0000 |
+| Metric | Run 1 | Run 2 | Run 3 | Run 4 | Average |
+|--------|-------|-------|-------|-------|----------|
+| **Accuracy** | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 |
+| **Precision** | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 |
+| **Recall** | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 |
+| **F1-Score** | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 |
+| **MCC** | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 |
+| **Balanced Accuracy** | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 |
 
-**Summary**: DenseNet169 achieves perfect classification on PlantVillage, consistent with ResNet50. The controlled environment and simplified 3-class problem enable perfect discrimination.
+**Summary**: DenseNet169 achieves perfect classification on PlantVillage across all 4 runs (100.0% average accuracy). Perfect consistency across different seeds demonstrates excellent stability on this simplified task.
 
 ---
 
@@ -301,29 +301,29 @@ This section presents comprehensive evaluation metrics for all trained models ac
 
 #### DenseNet201 on Mendeley Dataset (7 Classes)
 
-| Metric | Run 1 | Run 2 | Average |
-|--------|-------|-------|---------|
-| **Accuracy** | 0.9042 | 0.8896 | 0.8969 |
-| **Precision** | 0.9081 | 0.8927 | 0.9004 |
-| **Recall** | 0.9042 | 0.8896 | 0.8969 |
-| **F1-Score** | 0.9048 | 0.8898 | 0.8973 |
-| **MCC** | 0.8839 | 0.8657 | 0.8748 |
-| **Balanced Accuracy** | 0.9114 | 0.8960 | 0.9037 |
+| Metric | Run 1 | Run 2 | Run 3 | Run 4 | Average |
+|--------|-------|-------|-------|-------|----------|
+| **Accuracy** | 0.8831 | 0.8896 | 0.8912 | 0.8864 | 0.8876 |
+| **Precision** | 0.8886 | 0.8927 | 0.8935 | 0.8907 | 0.8914 |
+| **Recall** | 0.8831 | 0.8896 | 0.8912 | 0.8864 | 0.8876 |
+| **F1-Score** | 0.8838 | 0.8898 | 0.8911 | 0.8869 | 0.8879 |
+| **MCC** | 0.8586 | 0.8657 | 0.8682 | 0.8619 | 0.8636 |
+| **Balanced Accuracy** | 0.8935 | 0.8960 | 0.9146 | 0.8763 | 0.8951 |
 
-**Summary**: DenseNet201 achieves ~89.7% average accuracy on Mendeley. While slightly lower than DenseNet169, it still demonstrates superior performance over ResNet50, showing that deeper dense architectures maintain competitive results.
+**Summary**: DenseNet201 achieves ~88.8% average accuracy across 4 runs on Mendeley. While slightly lower than DenseNet169's ~89.8%, it maintains superior performance over ResNet50 (~87.4%), showing that deeper dense architectures maintain competitive results. Performance is very stable (88.3%-89.1% range).
 
 #### DenseNet201 on PlantVillage Dataset (3 Classes)
 
-| Metric | Run 1 | Run 2 | Average |
-|--------|-------|-------|---------|
-| **Accuracy** | 1.0000 | 0.9977 | 0.9989 |
-| **Precision** | 1.0000 | 0.9977 | 0.9989 |
-| **Recall** | 1.0000 | 0.9977 | 0.9989 |
-| **F1-Score** | 1.0000 | 0.9977 | 0.9989 |
-| **MCC** | 1.0000 | 0.9959 | 0.9980 |
-| **Balanced Accuracy** | 1.0000 | 0.9983 | 0.9992 |
+| Metric | Run 1 | Run 2 | Run 3 | Run 4 | Average |
+|--------|-------|-------|-------|-------|----------|
+| **Accuracy** | 1.0000 | 0.9968 | 1.0000 | 1.0000 | 0.9992 |
+| **Precision** | 1.0000 | 0.9977 | 1.0000 | 1.0000 | 0.9994 |
+| **Recall** | 1.0000 | 0.9968 | 1.0000 | 1.0000 | 0.9992 |
+| **F1-Score** | 1.0000 | 0.9977 | 1.0000 | 1.0000 | 0.9994 |
+| **MCC** | 1.0000 | 0.9959 | 1.0000 | 1.0000 | 0.9990 |
+| **Balanced Accuracy** | 1.0000 | 0.9983 | 1.0000 | 1.0000 | 0.9996 |
 
-**Summary**: DenseNet201 achieves near-perfect performance on PlantVillage (99.89% average accuracy), with Run 1 achieving perfect classification and Run 2 showing only minimal misclassification.
+**Summary**: DenseNet201 achieves near-perfect performance on PlantVillage (~99.9% average accuracy across 4 runs). 3 runs achieve perfect classification, while only Run 2 shows minimal misclassification, demonstrating excellent consistency.
 
 ---
 
@@ -333,10 +333,10 @@ This section presents comprehensive evaluation metrics for all trained models ac
 
 | Model | Average Accuracy | Average F1-Score | Average MCC |
 |-------|------------------|------------------|-------------|
-| **ResNet50** | 88.23% | 88.36% | 85.73% |
-| **DenseNet169 (Full)** | 90.59% | 90.66% | 88.59% |
-| **DenseNet169 (Final Layer Only)** | 68.43% | 68.45% | 61.49% |
-| **DenseNet201** | 89.69% | 89.73% | 87.48% |
+| **ResNet50** | 87.38% | 87.41% | 84.66% |
+| **DenseNet169 (Full)** | 89.77% | 89.83% | 87.60% |
+| **DenseNet169 (Final Layer Only)** | 69.24% | 69.08% | 62.46% |
+| **DenseNet201** | 88.76% | 88.79% | 86.36% |
 
 **Key Findings**:
 - **DenseNet169 with full fine-tuning** outperforms all other models on Mendeley
@@ -348,9 +348,9 @@ This section presents comprehensive evaluation metrics for all trained models ac
 
 | Model | Average Accuracy | Average F1-Score | Average MCC |
 |-------|------------------|------------------|-------------|
-| **ResNet50** | 100.00% | 100.00% | 100.00% |
+| **ResNet50** | 99.92% | 99.94% | 99.90% |
 | **DenseNet169** | 100.00% | 100.00% | 100.00% |
-| **DenseNet201** | 99.89% | 99.89% | 99.80% |
+| **DenseNet201** | 99.92% | 99.94% | 99.90% |
 
 **Key Findings**:
 - **Near-perfect classification achieved** by all models on PlantVillage
@@ -366,10 +366,10 @@ This section presents comprehensive evaluation metrics for all trained models ac
 
 | Model | Mendeley Accuracy | PlantVillage Accuracy | Generalization Gap |
 |-------|-------------------|-----------------------|-------------------|
-| **ResNet50** | 88.23% | 100.00% | 11.77% |
-| **DenseNet169 (Full)** | 90.59% | 100.00% | 9.41% |
-| **DenseNet169 (Final Layer Only)** | 68.43% | N/A* | N/A |
-| **DenseNet201** | 89.69% | 99.89% | 10.20% |
+| **ResNet50** | 87.38% | 99.92% | 12.54% |
+| **DenseNet169 (Full)** | 89.77% | 100.00% | 10.23% |
+| **DenseNet169 (Final Layer Only)** | 69.24% | N/A* | N/A |
+| **DenseNet201** | 88.76% | 99.92% | 11.16% |
 
 *Final layer-only variant was not evaluated on PlantVillage due to poor Mendeley performance.
 
